@@ -44,19 +44,20 @@ $(function () {
 
 
     // TODO 3 - Create Collectables
-    createCollectable("max", 1100, 582);
-    createCollectable("max", 700, 460);
-    createCollectable("diamond", 210, 180);
-    createCollectable("diamond", 1100, 140)
-    createCollectable("grace", 520, 582)
-    createCollectable("grace", 1000, 341)
+    createCollectable("star", 1100, 582, 0, 3);
+    createCollectable("star", 700, 460);
+    createCollectable("star", 210, 180);
+    createCollectable("star", 1100, 140);
+    createCollectable("star", 520, 582);
+    createCollectable("star", 1000, 341);
 
 
     
     // TODO 4 - Create Cannons
-    createCannon("left", 225, 50);
-    createCannon("top", 600, 50);
-    createCannon("right", 600, 50);
+    createCannon("left", 225, 2000);
+    createCannon("top", 600, 2000);
+    createCannon("right", 570, 2000);
+    createCannon("bottom", 850, 2000);
     
     
     //////////////////////////////////

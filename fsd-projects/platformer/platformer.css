@@ -1,10 +1,10 @@
 body {
-  background-image:url()
-  margin: 0px;
+
+margin: 0px;
 }
 
 canvas {
-  background-color: rgb(18, 58, 71)
+  background-color: rgb(93, 130, 155);
   margin: 20px;
 }
 
