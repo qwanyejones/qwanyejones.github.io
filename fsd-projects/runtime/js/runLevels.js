@@ -20,17 +20,19 @@ var runLevels = function (window) {
     // BEGIN EDITING YOUR CODE HERE
     
     // function that creates sawblades
-    function createSawBlade(x, y, damage){
+    function createSawBlade(x, y, damage, image, rotation, scale, offsetX, offsetY){
       var hitZoneSize = 25;
       var damageFromObstacle = damage;
       var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
       sawBladeHitZone.x = x;
       sawBladeHitZone.y = y;
-      sawBladeHitZone.rotationalVelocity = 30;
+      sawBladeHitZone.rotationalVelocity = rotation;
       game.addGameItem(sawBladeHitZone);
-      var obstacleImage = draw.bitmap("img/sawblade.png");
-      obstacleImage.x = -25;
-      obstacleImage.y = -25;
+      var obstacleImage = draw.bitmap(image);
+      obstacleImage.x = offsetX;
+      obstacleImage.y = offsetY;
+      obstacleImage.scaleX = scale;
+      obstacleImage.scaleY = scale;
       sawBladeHitZone.addChild(obstacleImage);
     }
     // function that creates hallebot enemies
@@ -76,8 +78,8 @@ var runLevels = function (window) {
         reward.fadeOut();
       };
     }
-    
-    function createMarker(x, y, speed, image, offsetX, offsetY, scale){
+    // function that creates rewards for hallebot
+    function createMarker(x, y, speed, image, offsetX, offsetY, scale){ 
       var marker = game.createGameItem("marker", 25);
       var yellowSquare = draw.bitmap(image);
       yellowSquare.x = offsetX;
@@ -106,24 +108,24 @@ var runLevels = function (window) {
       // TODO 13 goes below here
       var level = levelData[currentLevel]; // fethches the current level of the array and stores it in the level variable
       var levelObjects = level.gameItems;
-      for(var i = 0; i < levelObjects.length; i++){
+      for(var i = 0; i < levelObjects.length; i++){ // loop to make objects appear on runtime
         var element = levelObjects[i];
 
         if(element.type === "sawblade"){
-          createSawBlade(element.x, element.y, element.damage);
-        }
+          createSawBlade(element.x, element.y, element.damage,element.image, element.rotation, element.scale, element.offsetX, element.offsetY);
+        } // loop that creates each sawblade
 
         if(element.type === 'enemy'){
           createEnemy(element.x, element.y, element.speed, element.image, element.offsetX, element.offsetY, element.scale);
-        }
+        } // loop that creates each enemy
 
         if(element.type === 'reward'){
           createReward(element.x, element.y, element.speed, element.image, element.offsetX, element.offsetY, element.scale);
-        }
+        } // loop that cretaes each reward
 
         if(element.type === 'marker'){
           createMarker(element.x, element.y, element.speed, element.image, element.offsetX, element.offsetY, element.scale);
-        }
+        } // loop that creates each marker
       }
 
       //////////////////////////////////////////////

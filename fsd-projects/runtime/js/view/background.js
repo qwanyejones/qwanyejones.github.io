@@ -75,13 +75,14 @@ var background = function (window) {
                 background.addChild(building);
                  buildings.push(building);
             }
-            */
+            
+           
             // TODO 3: Part 1 - Add a tree
             tree = draw.bitmap("img/tree.png");
             tree.x = 300;
             tree.y = groundY - 225;
             background.addChild(tree); 
-            
+            */
         } // end of render function - DO NOT DELETE
         
         
@@ -92,7 +93,7 @@ var background = function (window) {
             var canvasWidth = app.canvas.width;
             var canvasHeight = app.canvas.height;
             var groundY = ground.y;
-            
+            /*
             // TODO 3: Part 2 - Move the tree!
             tree.x = tree.x - 5;
 
@@ -108,7 +109,7 @@ var background = function (window) {
                     building.x = canvasWidth + 100;
                 }
             }
-
+            */
         } // end of update function - DO NOT DELETE
         
         
